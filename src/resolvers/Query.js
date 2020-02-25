@@ -5,7 +5,7 @@ const Query = {
         return context.prisma.interviews({ where: { season: args.season, episode: args.episode } })
     },
     sauces(root, args, context) {
-        return context.prisma.sauces({ where: { appearsIn_every: { season: args.season } } })
+        return context.prisma.sauces({ where: { appearsIn_some: { season: args.season } } })
     },
     reviews(root, args, context) {
         return context.prisma.reviews({ where: { interview: { season: args.season, episode: args.episode } } })
