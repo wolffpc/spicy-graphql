@@ -9,14 +9,14 @@ Users are also able to create accounts (with hashed and salted passwords) to lea
 
 You can visit the GraphQL Playground website live [here](https://spicy-api.herokuapp.com/). Please note: This is currently running on a free tier heroku instance and may take a minute to "wake up" if it hasn't been used recently.
 
-Ideally I'd like to put together a proper frontend using this API at some in the future.
+Ideally I'd like to put together a proper frontend using this API at some point in the future.
 
 ## Using Spicy GraphQL
 
 If you've worked with GraphQL before the GraphQL Playground interface should be familiar but if not I've listed some example queries and mutations you could test out yourself. The `DOCS` tab on the right side of the Playground site details all others not listed here.
 
 Get the title, guest, and url link for every interview in season 9
-```
+```graphql
 query{
   interviews(season:9){
     title
@@ -27,7 +27,7 @@ query{
 ```
 
 Get the name and scoville heat units of all the hot sauces from season 6
-```
+```graphql
 query{
   sauces(season:6){
     name
@@ -37,7 +37,7 @@ query{
 ```
 
 Create a user and return the authentication token
-```
+```graphql
 mutation{
   createUser(
     data:{
@@ -52,7 +52,7 @@ mutation{
 ```
 
 Login using the user you've created and return the authentication token
-```
+```graphql
 mutation{
   login(
     data:{
@@ -66,14 +66,14 @@ mutation{
 ```
 
 For the following mutations you will need to be authenticated. This can be accomplished by setting an authorization http header using the `HTTP HEADERS` section in the GraphQL Playground
-```
+```graphql
 {
   "Authorization":"Bearer LongAuthenticationTokenGoesHere"
 }
 ```
 
 Get your user information including any reviews you've written
-```
+```graphql
 query{
   me{
     handle
@@ -91,7 +91,7 @@ query{
 ```
 
 Create a review for season 9 episode 12 (you can find the ID for any episode using the `interview` query)
-```
+```graphql
 mutation{
   createReview(
     data:{
@@ -138,7 +138,7 @@ touch docker-compose.yml
 ```
 
 Add Prisma and database Docker images (your database info may differ)
-```
+```yml
 version: '3'
 services:
   prisma:
