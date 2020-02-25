@@ -1,6 +1,6 @@
-const getUserId = require('./utils/getUserId')
-const hashPassword = require('./utils/hashPassword')
-const generateToken = require('./utils/generateToken')
+const getUserId = require('../utils/getUserId')
+const hashPassword = require('../utils/hashPassword')
+const generateToken = require('../utils/generateToken')
 const bcrypt = require('bcryptjs')
 
 const Mutation = {
