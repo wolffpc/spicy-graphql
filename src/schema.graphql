@@ -1,0 +1,85 @@
+type Query {
+    interviews(season: Int, episode: Int): [Interview!]!
+    sauces(season: Int): [Sauce!]!
+    reviews(season: Int, episode: Int): [Review!]!
+    me: User!
+}
+
+type Mutation {
+    login(data: LoginUserInput): AuthPayload!
+    createUser(data: CreateUserInput): AuthPayload!
+    updateUser(data: UpdateUserInput): User!
+    deleteUser: User!
+    createReview(data: CreateReviewInput): Review!
+    updateReview(id: ID!, data: UpdateReviewInput!): Review!
+    deleteReview(id: ID!): Review!
+}
+
+type AuthPayload {
+    token: String!
+    user: User!
+}
+
+input LoginUserInput {
+    email: String!
+    password: String!
+}
+
+input CreateUserInput {
+    handle: String!
+    email: String!
+    password: String!
+}
+
+input UpdateUserInput {
+    handle: String
+    email: String
+    password: String
+}
+
+input CreateReviewInput {
+    interview: ID!
+    stars: Int!
+    commentary: String
+}
+
+input UpdateReviewInput {
+    stars: Int
+    commentary: String
+}
+
+type Interview {
+    id: ID!
+    title: String!
+    host: String!
+    guest: String!
+    season: Int!
+    episode: Int!
+    airDate: String!
+    link: String!
+    sauces: [Sauce!]!
+    reviews: [Review!]!
+}
+
+type Sauce {
+    id: ID!
+    name: String!
+    scoville: Int!
+    appearsIn: [Interview!]!
+}
+
+type Review {
+    id: ID!
+    stars: Int!
+    commentary: String
+    author: User!
+    interview: Interview!
+}
+
+type User {
+    id: ID!
+    handle: String!
+    email: String
+    password: String!
+    reviews: [Review!]!
+}

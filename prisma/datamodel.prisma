@@ -1,0 +1,37 @@
+type User {
+  id: ID! @id
+  email: String! @unique
+  password: String!
+  handle: String!
+  reviews: [Review!]! @relation(name: "ReviewToUser", onDelete: CASCADE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Interview {
+  id: ID! @id
+  title: String!
+  host: String! @default(value: "Sean Evans")
+  guest: String!
+  season: Int!
+  episode: Int!
+  airDate: DateTime!
+  sauces: [Sauce!]!
+  link: String!
+  reviews: [Review!]! @relation(name: "ReviewToInterview", onDelete: CASCADE)
+}
+
+type Sauce {
+  id: ID! @id
+  name: String! @unique
+  scoville: Int!
+  appearsIn: [Interview!]!
+}
+
+type Review {
+  id: ID! @id
+  stars: Int!
+  commentary: String
+  author: User! @relation(name: "ReviewToUser", onDelete: SET_NULL)
+  interview: Interview! @relation(name: "ReviewToInterview", onDelete: SET_NULL)
+}
