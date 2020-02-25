@@ -5,13 +5,15 @@ const Mutation = require('./resolvers/Mutation')
 const Interview = require('./resolvers/Interview')
 const Review = require('./resolvers/Review')
 const Sauce = require('./resolvers/Sauce')
+const User = require('./resolvers/User')
 
 const resolvers = {
     Query,
     Mutation,
     Interview,
     Review,
-    Sauce
+    Sauce,
+    User
 }
 
 const server = new GraphQLServer({
