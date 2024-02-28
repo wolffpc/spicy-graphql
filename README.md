@@ -1,13 +1,8 @@
 # Spicy GraphQL
 
-![GitHub repo size](https://img.shields.io/github/repo-size/wolffpc/spicy-graphql)
-![David](https://img.shields.io/david/wolffpc/spicy-graphql)
-
 Spicy GraphQL is an API implementation using GraphQL that allows users to query information about different Hot Ones episodes and the hot sauces used during the interviews.
 
 Users are also able to create accounts (with hashed and salted passwords) to leave reviews on individual episodes with a 1-5 star rating and optional commentary. 
-
-You can visit the GraphQL Playground website live [here](https://spicy-api.herokuapp.com/). Please note: This is currently running on a free tier heroku instance and may take a minute to "wake up" if it hasn't been used recently.
 
 Ideally I'd like to put together a proper frontend using this API at some point in the future.
 
